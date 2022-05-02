@@ -11,7 +11,7 @@ cd certbot-govh
 go build
 ```
 
-Or download release : https://github.com/leblanc-simon/certbot-govh/releases/download/v1.0.0/certbot-govh-v1.0.0.tar.bz2
+Or download release : https://github.com/leblanc-simon/certbot-govh/releases/download/v1.0.0/certbot-govh-1.0.0.tar.bz2
 
 ## Usage
 
