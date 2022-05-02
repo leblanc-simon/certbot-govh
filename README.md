@@ -11,7 +11,7 @@ cd certbot-govh
 go build
 ```
 
-Or download release : 
+Or download release : https://github.com/leblanc-simon/certbot-govh/releases/download/v1.0.0/certbot-govh-v1.0.0.tar.bz2
 
 ## Usage
 
@@ -40,7 +40,29 @@ consumer_key=
 When all is OK, you can run : 
 
 ```bash
-certbot certonly --manual --preferred-challenges=dns --manual-auth-hook /opt/certbot-govh/certbot-govh-auth.sh --manual-cleanup-hook /opt/certbot-govh/certbot-govh-cleanup.sh -d secure.example.com
+certbot certonly --manual --preferred-challenges=dns --manual-auth-hook /opt/certbot-govh/certbot-govh-auth.sh --manual-cleanup-hook /opt/certbot-govh/certbot-govh-cleanup.sh -d *.example.com
+```
+
+Or use a config file : 
+
+```ini
+# /etc/letsencrypt/cli-example.com.ini
+rsa-key-size = 4096
+email = postmaster@example.cpù
+agree-tos = True
+
+domains = *.example.com
+
+authenticator = manual
+manual-auth-hook = /opt/certbot-govh/certbot-govh-auth.sh
+manual-cleanup-hook = /opt/certbot-govh/certbot-govh-cleanup.sh
+preferred-challenges = dns-01
+manual-public-ip-logging-ok = True
+renew-by-default = True
+```
+
+```bash
+certbot certonly -c /etc/letsencrypt/cli-example.com.ini
 ```
 
 ## License

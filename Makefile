@@ -10,8 +10,8 @@ help:
 
 release: ## Build a release version
 	@go build -tags osusergo,netgo -o certbot-govh
-	@mkdir releases
-	@tar -xjf releases/certbot-govh-$(VERSION) certbot-govh certbot-govh-auth.sh certbot-govh-cleanup.sh
+	@mkdir -p releases
+	@tar -cjf releases/certbot-govh-$(VERSION).tar.bz2 certbot-govh certbot-govh-auth.sh certbot-govh-cleanup.sh
 	@echo "Prod release done"
 
 .PHONY: help
